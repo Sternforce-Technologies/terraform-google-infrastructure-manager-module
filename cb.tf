@@ -29,7 +29,7 @@ resource "google_cloudbuildv2_repository" "github_module_repo" {
   location          = var.region
   name              = "sft-terraform-modules"
   parent_connection = google_cloudbuildv2_connection.github_connection.name
-  remote_uri        = "https://github.com/Sternforce-Technologies/terraform_google_infrastructure_manager_module.git"
+  remote_uri        = "https://github.com/Sternforce-Technologies/terraform-google-infrastructure-manager-module.git"
 
   depends_on = [
     google_cloudbuildv2_connection.github_connection,
