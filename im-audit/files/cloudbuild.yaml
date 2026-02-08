@@ -1,0 +1,20 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - 'gcloud'
+      - 'functions'
+      - 'deploy'
+      - 'im-global-auditor-go'
+      - '--gen2'
+      - '--region=us-central1'
+      - '--runtime=go125'
+      # Path is relative to the repository root
+      - '--source=infrastructure_manager_automation/im-audit/' 
+      - '--entry-point=AuditResources'
+      - '--service-account=sft-gcp-infra-im-auditor-sa@${_PROJECT_ID}.iam.gserviceaccount.com'
+
+substitutions:
+  _PROJECT_ID: sternforce-technologies
+
+options:
+  logging: CLOUD_LOGGING_ONLY
